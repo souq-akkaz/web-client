@@ -1,1 +1,28 @@
-<p>login-page works!</p>
+<div class="login-form-wrapper">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" placeholder="Enter your username">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" formControlName="password" matInput placeholder="Enter your password">
+      <mat-icon matSuffix>password</mat-icon>
+    </mat-form-field>
+
+    <div class="api-errors-box w-100 mt-2">
+      <div *ngIf="state.error" class="alert alert-danger" role="alert">
+        {{ state.error?.messages || state.error?.message }}
+      </div>
+    </div>
+
+    <button class="w-100 mt-2 login-button" type="submit" mat-raised-button color="primary"
+      [disabled]="state.loggingIn">
+      Login
+      <mat-progress-bar *ngIf="state.loggingIn" class="example-margin" color="primary" mode="indeterminate">
+      </mat-progress-bar>
+    </button>
+  </form>
+</div>

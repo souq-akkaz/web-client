@@ -27,6 +27,10 @@ interface ICurrentUserResponse {
   email: string;
 }
 
+interface ILoginData {
+  username: string;
+  password: string;
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -39,7 +43,7 @@ export class AuthService {
   constructor(private _http: HttpClient) { }
 
   getCurrentUser$ = this._http.get<ICurrentUserResponse>(
-    `${environment.api}/v1/auth/current-user`
+    `${environment.api}/v1/auth/current`
   )
     .pipe(shareReplay());
 
@@ -76,5 +80,21 @@ export class AuthService {
           username: resp.user.username
         });
       }));
+  }
+
+  login(data: ILoginData) {
+    return this._http.post<ISignupResponse>(`${environment.api}/v1/auth/login`, data)
+      .pipe(tap((resp) => {
+        this.setUserAuth({
+          id: resp.user.id,
+          refreshToken: resp.refreshToken,
+          token: resp.token,
+          username: resp.user.username
+        });
+      }));
+  }
+
+  logout(): void {
+    this.flushUserAuth();
   }
 }

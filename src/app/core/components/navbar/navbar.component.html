@@ -8,16 +8,16 @@
 
     </div>
 
-    <div class="end-box">
+    <div class="end-box d-flex align-items-center">
       <ng-container *ngIf="!(userAuth$ | async)">
         <button class="mx-2" mat-raised-button color="primary" [routerLink]="['/signup']">Create account</button>
         <button mat-raised-button color="primary" [routerLink]="['/login']">Login</button>
       </ng-container>
       <ng-container *ngIf="(userAuth$ | async) as user">
-        <p>
+        <p class="mx-2 my-0">
           Hello, {{ user.username }}
-          <button>Logout</button>
         </p>
+        <button mat-raised-button type="button" color="primary" (click)="logout()">Logout</button>
       </ng-container>
     </div>
   </div>

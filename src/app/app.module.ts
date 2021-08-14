@@ -10,8 +10,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { CoreModule } from './core/core.module';
-import { AuthService } from './pages/auth/services/auth.service';
 import { AppInitService } from './core/services/app-init.service';
+import { AuthUtilsModule } from './utils/auth-utils/auth-utils.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { AppInitService } from './core/services/app-init.service';
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    AuthUtilsModule
   ],
   providers: [
     {

@@ -20,16 +20,14 @@ export class AppInitService {
       const currentUser = await this._authService.getCurrentUser$.toPromise();
       const userAuth = {
         id: currentUser.id,
-        refreshToken: this._localStorageService.get('userAuth.refreshToken'),
-        token: this._localStorageService.get('userAuth.token'),
+        refreshToken: this._localStorageService.get('userAuth.refreshToken') as string,
+        token: this._localStorageService.get('userAuth.token') as string,
         username: currentUser.username
       };
-      console.log(userAuth);
       this._authService.setUserAuth(userAuth);
       this._router.navigate(['']);
     } catch (exc) {
       this._authService.flushUserAuth();
-      this._router.navigate(['/login']);
     }
   }
 }
