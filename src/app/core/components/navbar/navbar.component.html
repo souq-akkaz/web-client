@@ -9,8 +9,16 @@
     </div>
 
     <div class="end-box">
-      <button class="mx-2" mat-raised-button color="primary" [routerLink]="['/signup']">Create account</button>
-      <button mat-raised-button color="primary" [routerLink]="['/login']">Login</button>
+      <ng-container *ngIf="!(userAuth$ | async)">
+        <button class="mx-2" mat-raised-button color="primary" [routerLink]="['/signup']">Create account</button>
+        <button mat-raised-button color="primary" [routerLink]="['/login']">Login</button>
+      </ng-container>
+      <ng-container *ngIf="(userAuth$ | async) as user">
+        <p>
+          Hello, {{ user.username }}
+          <button>Logout</button>
+        </p>
+      </ng-container>
     </div>
   </div>
 </nav>

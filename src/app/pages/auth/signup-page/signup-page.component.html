@@ -1,1 +1,31 @@
-<p>signup-page works!</p>
+<div class="signup-form-wrapper">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username" placeholder="examples: [ a7md.940 - a7md940 - ahmed - a7md_940 ]">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Username allowed special charachters are [ . - _ ]</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input type="email" formControlName="email" matInput placeholder="Enter your email address, it should be valid email.">
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" formControlName="password" matInput placeholder="examples: G00dNight__m@n">
+      <mat-icon matSuffix>password</mat-icon>
+      <mat-hint>Password must contains special characters, numbers and at least one upper case charachter.</mat-hint>
+    </mat-form-field>
+
+    <div class="api-errors-box w-100 mt-4">
+      <div *ngIf="state.error" class="alert alert-danger" role="alert">
+        {{ state.error?.messages }}
+      </div>
+    </div>
+
+    <button class="w-100 mt-2 signup-button" type="submit" mat-raised-button color="primary">Signup</button>
+  </form>
+</div>
