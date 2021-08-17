@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { CoreModule } from './core/core.module';
@@ -16,7 +15,6 @@ import { AuthUtilsModule } from './utils/auth-utils/auth-utils.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomePageComponent,
     LoginLayoutComponent,
     HomeLayoutComponent
   ],

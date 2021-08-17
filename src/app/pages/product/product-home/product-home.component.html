@@ -1,0 +1,6 @@
+<div class="product-home-wrapper">
+  <ng-container *ngIf="pagedList?.collection?.length">
+    <app-product-item class="d-block m-2" *ngFor="let product of pagedList.collection" [product]="product">
+    </app-product-item>
+  </ng-container>
+</div>

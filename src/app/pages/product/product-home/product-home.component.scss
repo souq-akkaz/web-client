@@ -1,0 +1,16 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: inherit;
+}
+.product-home-wrapper {
+  flex-grow: 1;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  padding: .5rem;
+  overflow-y: scroll;
+  app-product-item {
+    flex-basis: 20%;
+  }
+}

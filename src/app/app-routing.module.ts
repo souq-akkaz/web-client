@@ -3,7 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { LoginLayoutComponent } from './layouts/login-layout/login-layout.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AuthGuard } from './utils/auth-utils/guards/auth.guard';
 
 const routes: Routes = [
@@ -14,7 +13,7 @@ const routes: Routes = [
       {
         path: '',
         canActivate: [AuthGuard],
-        component: HomePageComponent
+        loadChildren: () => import('./pages/product/product.module').then(m => m.ProductModule)
       }
     ]
   },

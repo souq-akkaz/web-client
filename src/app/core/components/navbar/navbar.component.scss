@@ -1,4 +1,7 @@
 .navbar-wrapper {
+  z-index: 9;
+  position: sticky;
+  top: 0;
   padding: .5rem 1rem;
   display: flex;
   justify-content: space-between;
@@ -11,4 +14,11 @@
     align-items: center;
     
   }
+}
+.user-balance {
+  background-color: green;
+  border-radius: 5px;
+  color: white;
+  font-weight: bolder;
+  padding: 5px 15px;
 }

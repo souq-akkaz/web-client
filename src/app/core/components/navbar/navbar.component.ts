@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../../pages/auth/services/auth.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,12 +11,18 @@ import { AuthService } from '../../../pages/auth/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   userAuth$ = this._authService.selectState('userAuth');
+  currentUserBalance!: number;
   constructor(
     private _authService: AuthService,
-    private _router: Router
+    private _router: Router,
+    private _userService: UserService
   ) {}
 
   ngOnInit(): void {
+    this._userService.getCurrentUserbalance()
+      .subscribe((resp) => {
+        this.currentUserBalance = resp.balance;
+      }); 
   }
 
   logout(): void {

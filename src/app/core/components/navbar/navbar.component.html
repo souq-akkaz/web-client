@@ -16,6 +16,9 @@
       <ng-container *ngIf="(userAuth$ | async) as user">
         <p class="mx-2 my-0">
           Hello, {{ user.username }}
+          <span class="user-balance">
+            Balance: {{ currentUserBalance }}
+          </span>
         </p>
         <button mat-raised-button type="button" color="primary" (click)="logout()">Logout</button>
       </ng-container>

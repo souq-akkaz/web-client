@@ -2,3 +2,6 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 @import './assets/icons/material-icons.scss';
+html {
+  overflow: hidden !important;
+}
